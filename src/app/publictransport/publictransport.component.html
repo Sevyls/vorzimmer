@@ -1,3 +1,19 @@
-<p>
-  publictransport works!
-</p>
+<button class="btn btn-lg btn-primary float-right mr-2" (click)="list()">
+  <i class="fa fa-refresh"></i> Aktualisieren</button>
+<div class="container" *ngIf="haltestelle">
+  <h1 class="mt-2">{{haltestelle.name}}</h1>
+
+  <section *ngFor="let steig of haltestelle.steige">
+    <div class="row" *ngFor="let monitor of steig.monitor">
+      <div class="col" *ngFor="let line of monitor.lines">
+        <h2>{{line.name}} <i class="fa fa-arrow-right"></i> {{line.towards}}</h2>
+        <ul>
+          <li *ngFor="let departure of line.departures.departure">
+            {{departure.departureTime.countdown}} min
+            <span *ngIf="departure.departureTime.timeReal"> @ {{departure.departureTime.timeReal | date: 'medium'}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

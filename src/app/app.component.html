@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top bg-faded">
   <div class="row">
-    <div class="col-7">Blubb</div>
+    <div class="col-7">Maus &amp; B&auml;r OS 1.0 Beta</div>
     <div class="col-5 text-right">
       <span class="mr-2"><i class="fa fa-calendar"></i> {{currentTime | async | date: 'fullDate' }}</span>
       <span><i class="fa fa-clock-o"></i> {{currentTime | async | date: 'shortTime' }}</span>
@@ -11,18 +11,18 @@
   <ngb-tabset>
     <ngb-tab>
       <ng-template ngbTabTitle>
-        <i class="fa fa-calendar" aria-hidden="true"> </i> Kalender
-      </ng-template>
-      <ng-template ngbTabContent>
-        <calendar></calendar>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>
         <i class="fa fa-bus" aria-hidden="true"> </i> Abfahrtszeiten
       </ng-template>
       <ng-template ngbTabContent>
         <publictransport></publictransport>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <i class="fa fa-calendar" aria-hidden="true"> </i> Kalender
+      </ng-template>
+      <ng-template ngbTabContent>
+        <calendar></calendar>
       </ng-template>
     </ngb-tab>
     <ngb-tab>
