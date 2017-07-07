@@ -3,7 +3,7 @@
     <div class="d-flex flex-column align-self-stretch  ml-5 mr-5 main text-center align-middle rounded pl-1 pt-2 pb-1 pr-3">
       <span class="text-nowrap mb-2">Aktuell</span>
       <h1 class="mb-0">
-        <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="{{weather.weather[0].main}}" />
+        <app-weather-image [icon]="weather.weather[0].icon" [alttext]="weather.weather[0].main"></app-weather-image>
         {{weather.main.temp | number: "1.0-0" }} °C
       </h1>
     </div>

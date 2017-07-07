@@ -14,6 +14,7 @@ import { WeatherComponent } from './weather/weather.component';
 import {OpenWeatherApiService} from "./open-weather-api.service";
 import { NavbarComponent } from './navbar/navbar.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { WeatherImageComponent } from './weather-image/weather-image.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ForecastComponent } from './forecast/forecast.component';
     PublictransportComponent,
     WeatherComponent,
     NavbarComponent,
-    ForecastComponent
+    ForecastComponent,
+    WeatherImageComponent
   ],
   imports: [
     NgbModule.forRoot(),

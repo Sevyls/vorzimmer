@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <img src="http://openweathermap.org/img/w/{{forecast.weather[0].icon}}.png" alt="{{forecast.weather[0].description}}" />
+      <app-weather-image [icon]="forecast.weather[0].icon" [alttext]="forecast.weather[0].description"></app-weather-image>
     </div>
     <div class="col">
       <div class="row ml-1 text-nowrap">
