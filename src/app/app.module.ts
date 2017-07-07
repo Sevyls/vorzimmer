@@ -10,6 +10,10 @@ import { PublictransportComponent } from './publictransport/publictransport.comp
 import { CalendarService } from './calendar/calendar.service';
 import { WlMonitorService } from './wl-monitor.service';
 import { LOCALE_ID } from '@angular/core';
+import { WeatherComponent } from './weather/weather.component';
+import {OpenWeatherApiService} from "./open-weather-api.service";
+import { NavbarComponent } from './navbar/navbar.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { LOCALE_ID } from '@angular/core';
     CalendarComponent,
     TodolistComponent,
     GrocerylistComponent,
-    PublictransportComponent
+    PublictransportComponent,
+    WeatherComponent,
+    NavbarComponent,
+    ForecastComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -27,6 +34,7 @@ import { LOCALE_ID } from '@angular/core';
   providers: [
     CalendarService,
     WlMonitorService,
+    OpenWeatherApiService,
     { provide: LOCALE_ID, useValue: 'de' }
   ],
   bootstrap: [AppComponent]

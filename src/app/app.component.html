@@ -1,12 +1,5 @@
-<nav class="navbar sticky-top bg-faded">
-  <div class="row">
-    <div class="col-7">Maus &amp; B&auml;r OS 1.0 Beta</div>
-    <div class="col-5 text-right">
-      <span class="mr-2"><i class="fa fa-calendar"></i> {{currentTime | async | date: 'fullDate' }}</span>
-      <span><i class="fa fa-clock-o"></i> {{currentTime | async | date: 'shortTime' }}</span>
-    </div>
-  </div>
-</nav>
+<app-navbar [currentTime]="currentTime"></app-navbar>
+
 <div class="m-1">
   <ngb-tabset>
     <ngb-tab>
@@ -15,6 +8,14 @@
       </ng-template>
       <ng-template ngbTabContent>
         <publictransport></publictransport>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <i class="fa fa-sun-o" aria-hidden="true"> </i> Wetter
+      </ng-template>
+      <ng-template ngbTabContent>
+        <app-weather></app-weather>
       </ng-template>
     </ngb-tab>
     <ngb-tab>

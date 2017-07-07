@@ -1,0 +1,34 @@
+<div class="container mt-4" *ngIf="weather && forecast">
+  <div class="row mb-4">
+    <div class="d-flex flex-column align-self-stretch  ml-5 mr-5 main text-center align-middle rounded pl-1 pt-2 pb-1 pr-3">
+      <span class="text-nowrap mb-2">Aktuell</span>
+      <h1 class="mb-0">
+        <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="{{weather.weather[0].main}}" />
+        {{weather.main.temp | number: "1.0-0" }} °C
+      </h1>
+    </div>
+    <div class="d-flex flex-column align-self-stretch forecast text-center rounded ml-1 mr-5 pl-3 pr-3 pt-2 pb-1">
+      <app-forecast [forecast]="forecast.list[1]"></app-forecast>
+    </div>
+    <div class="d-flex flex-column pt-3">
+      <p>
+        Wind {{weather.wind.speed | number}} km/h in {{weather.wind.deg}}°
+      <br/>
+        Sonnenaufgang: {{weather.sys.sunrise * 1000 | date: 'shortTime' }}
+      <br />
+        Sonnenuntergang: {{weather.sys.sunset * 1000 | date: 'shortTime' }}
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center rounded forecast ml-1 mr-1 mb-2 pl-2 pr-2 pt-2 pb-1"
+         *ngFor="let f of forecast.list | slice: 2:8">
+      <app-forecast [forecast]="f"></app-forecast>
+    </div>
+  </div>
+</div>
+<div class="container text-center mt-2">
+  <button class="btn btn-lg btn-primary mr-2"  (click)="refresh()">
+    <i class="fa fa-refresh"></i> Aktualisieren
+  </button>
+</div>
