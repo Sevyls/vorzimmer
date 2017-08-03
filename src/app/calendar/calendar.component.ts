@@ -13,7 +13,7 @@ export class CalendarComponent implements OnInit {
   constructor(private calendarService: CalendarService) { }
 
   ngOnInit() {
-    this.calendarEntries = this.calendarService.readEntries();
+    this.calendarService.readEntries().then(response => this.calendarEntries = response.result.items);
   }
 
 }

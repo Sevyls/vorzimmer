@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   @Input()
-  private currentTime: string;
+  currentTime: string;
 
   ngOnInit() {
   }

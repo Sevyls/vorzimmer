@@ -1,28 +1,29 @@
 import { Injectable } from "@angular/core";
 import { Http, Response, Headers } from "@angular/http";
+declare var gapi: any;
 
 const CALENDAR_URL: string = "https://calendar.google.com/calendar/ical/viktoria2017michael%40gmail.com/private-b9ce7debb98d042d71a476f920124ff2/basic.ics";
 @Injectable()
 export class CalendarService {
 
   constructor(private http: Http) {}
+  items: Array<any> = [];
 
   readEntries() {
-    //this.loadIcsFile();
-    return [{summary: "Test"}, {summary: "Blubb"}];
-  }
+    let options = {
+      'calendarId': 'primary',
+      'timeMin': (new Date()).toISOString(),
+      'showDeleted': false,
+      'singleEvents': true,
+      'maxResults': 10,
+      'orderBy': 'startTime'
+    };
 
-  private loadIcsFile() {
-    console.log("loadIcsFile");
-    let headers = new Headers({'Access-Control-Request-Origin': 'http://localhost:4200'});
-
-    this.http.options(CALENDAR_URL, {headers: headers}).subscribe((response: Response) => {
-      console.log(response);
-      this.http.get(CALENDAR_URL, {headers: headers}).subscribe((response: Response) => {
-        console.log(response.status);
-        return response.bytesLoaded;
-      });
+    let result: Promise<any> = gapi.client.calendar.events.list(options);
+    result.then((response) => {
+      this.items = response.result.items;
+      console.log(this.items);
     });
+    return result;
   }
-
 }
