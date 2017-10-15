@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Abfahrtsmonitor hinzufügen</h2>
+  <div class="row">
+    <select class="form-control col-8" [(ngModel)]="selectedId">
+      <option *ngFor="let key of allStationsKeys" [ngValue]="key">
+        {{allStations[key]['name']}}
+      </option>
+    </select>
+    <button class="btn btn-primary form-control col-4" (click)="addMonitor(selectedId)">Hinzufügen</button>
+  </div>
+  <div class="row">
+    <ul>
+      <li *ngFor="let key of monitorIds">{{allStations[key]['name']}}</li>
+    </ul>
+  </div>
+</div>

@@ -7,7 +7,7 @@
         <i class="fa fa-bus" aria-hidden="true"> </i> Abfahrtszeiten
       </ng-template>
       <ng-template ngbTabContent>
-        <publictransport></publictransport>
+        <publictransport *ngFor="let monitorId of monitorIds" [haltestelleId]="monitorId"></publictransport>
       </ng-template>
     </ngb-tab>
     <ngb-tab>
@@ -40,6 +40,14 @@
       </ng-template>
       <ng-template ngbTabContent>
         <todolist></todolist>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        <i class="fa fa-cog" aria-hidden="true"> </i> Einstellungen
+      </ng-template>
+      <ng-template ngbTabContent>
+        <settings></settings>
       </ng-template>
     </ngb-tab>
 

@@ -1,0 +1,14 @@
+.realtime {
+  font-weight: bold;
+}
+.line {
+  min-width: 3em;
+  text-align: center;
+}
+.towards {
+  padding-left: 10px;
+  min-width: 20em;
+}
+.departureTime {
+  padding: 5px;
+}

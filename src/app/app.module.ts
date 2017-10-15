@@ -15,6 +15,8 @@ import {OpenWeatherApiService} from "./open-weather-api.service";
 import { NavbarComponent } from './navbar/navbar.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { WeatherImageComponent } from './weather-image/weather-image.component';
+import { SettingsComponent } from './settings/settings.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { WeatherImageComponent } from './weather-image/weather-image.component';
     WeatherComponent,
     NavbarComponent,
     ForecastComponent,
-    WeatherImageComponent
+    WeatherImageComponent,
+    SettingsComponent
   ],
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     CalendarService,

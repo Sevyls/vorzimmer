@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WlMonitorService } from '../wl-monitor.service';
 import { Subscription, Observable } from 'rxjs';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
@@ -10,6 +10,9 @@ import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
   styleUrls: ['./publictransport.component.css']
 })
 export class PublictransportComponent implements OnInit {
+  @Input()
+  haltestelleId: string;
+
   haltestelle;
 
   private monitorSubscription: Subscription;
@@ -23,7 +26,7 @@ export class PublictransportComponent implements OnInit {
   }
 
   list() {
-    this.wlMonitorService.loadStation("219364357").subscribe(
+    this.wlMonitorService.loadStation(this.haltestelleId).subscribe(
       (json) => {
         console.log(json);
         this.haltestelle = json;
