@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+
+Exec=chromium-browser --kiosk --disable-infobars http://localhost/index.html
